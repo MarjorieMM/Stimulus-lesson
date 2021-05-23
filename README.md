@@ -43,12 +43,12 @@ For more information about this approach, see https://symfonycasts.com/screencas
 If you do not want to use Docker, you can also just install and run
 MySQL manually. When you're done, open the `.env` file and make any
 adjustments you need - specifically `DATABASE_URL`. Or, better,
-you can create a `.env.local` file and *override* any configuration
+you can create a `.env.local` file and _override_ any configuration
 you need there (instead of changing `.env` directly).
 
 **3) Database Schema**
 
-To actually *create* the database and get some tables, run:
+To actually _create_ the database and get some tables, run:
 
 ```
 symfony console doctrine:database:create
@@ -99,3 +99,7 @@ And as always, thanks so much for your support and letting
 us do what we love!
 
 <3 Your friends at SymfonyCasts
+
+# Stimulus-lesson
+
+Code from stimulus course on SymfonyCasts
