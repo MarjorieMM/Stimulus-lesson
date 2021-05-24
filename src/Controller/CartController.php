@@ -67,7 +67,12 @@ class CartController extends AbstractController
     /**
      * @Route("/cart/remove/{productId}/{colorId?}", name="app_cart_remove_item", methods={"POST"})
      */
-    public function removeItemToCart($productId, $colorId, Request $request, CartStorage $cartStorage, ProductRepository $productRepository, ColorRepository $colorRepository)
+    public function removeItemToCart(
+        $productId, $colorId, 
+        Request $request, 
+        CartStorage $cartStorage, 
+        ProductRepository $productRepository, 
+        ColorRepository $colorRepository)
     {
         /** @var Product|null $product */
         $product = $productRepository->find($productId);
@@ -92,5 +97,15 @@ class CartController extends AbstractController
         $this->addFlash('success', 'Item removed!');
 
         return $this->redirectToRoute('app_cart');
+    }
+    
+/**
+ * @Route("/cart/_list", name="_app_cart_list")
+ */
+
+    public function _shoppingCartList(CartStorage $cartStorage) {
+        return $this->render('cart/_cartList.html.twig', [
+            'cart' => $cartStorage->getOrCreateCart()
+        ]);
     }
 }

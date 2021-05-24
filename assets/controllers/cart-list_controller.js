@@ -1,7 +1,12 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-	connect() {
-		console.log("cart connected");
+	static values = {
+		cartRefreshUrl: String,
+	};
+	async removeItem(event) {
+		event.currentTarget.classList.add("removing");
+		const response = await fetch(this.cartRefreshUrlValue);
+		this.element.innerHTML = await response.text();
 	}
 }

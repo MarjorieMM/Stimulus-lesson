@@ -11,7 +11,7 @@ export default class extends Controller {
 		submitAsync: Boolean,
 	};
 	connect() {
-		useDispatch(this, { debug: true });
+		useDispatch(this);
 	}
 	onSubmit(event) {
 		event.preventDefault();
